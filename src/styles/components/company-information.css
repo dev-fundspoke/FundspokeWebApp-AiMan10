@@ -1,0 +1,96 @@
+@layer components {
+  .company-info-form {
+    @apply space-y-8 w-full;
+
+    .ant-collapse-item {
+      @apply mb-4 overflow-hidden transition-all duration-300;
+      border: 1px solid theme('colors.neutral.200');
+      border-radius: theme('borderRadius.lg');
+      background: transparent;
+
+      &:hover {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 15px theme('colors.primary.500/10');
+      }
+
+      .ant-collapse-header {
+        @apply px-6 py-4;
+        background: theme('colors.neutral.50/5');
+        border-bottom: 1px solid theme('colors.neutral.200');
+      }
+
+      .ant-collapse-content {
+        @apply px-6 py-8;
+        background: transparent;
+        border-top: none;
+
+        .ant-collapse-content-box {
+          @apply p-0;
+        }
+      }
+    }
+
+    .ant-form-item {
+      @apply mb-6;
+    }
+
+    .ant-input,
+    .ant-input-textarea,
+    .ant-select-selector,
+    .ant-picker {
+      @apply w-full transition-all duration-300;
+      border-radius: theme('borderRadius.lg');
+      min-height: 42px;
+      
+      &:hover {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 10px theme('colors.primary.500/20');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 15px theme('colors.primary.500/30');
+      }
+    }
+  }
+}
+
+.dark {
+  .company-info-form {
+    .ant-collapse-item {
+      border-color: theme('colors.neutral.700');
+
+      &:hover {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 20px theme('colors.primary.400/20');
+      }
+
+      .ant-collapse-header {
+        background: theme('colors.neutral.800/30');
+        border-bottom-color: theme('colors.neutral.700');
+      }
+
+      .ant-collapse-content {
+        background: transparent;
+      }
+    }
+
+    .ant-input,
+    .ant-input-textarea,
+    .ant-select-selector,
+    .ant-picker {
+      background: theme('colors.neutral.800') !important;
+      border-color: theme('colors.neutral.700');
+      
+      &:hover {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 10px theme('colors.primary.400/30');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 15px theme('colors.primary.400/40');
+      }
+    }
+  }
+}

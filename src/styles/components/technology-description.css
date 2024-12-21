@@ -1,0 +1,27 @@
+@layer components {
+  .technology-upload-dragger {
+    @apply transition-all duration-300;
+    border-radius: theme('borderRadius.lg');
+    border: 2px dashed theme('colors.neutral.200');
+    background: transparent;
+    padding: theme('spacing.8');
+
+    &:hover {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 15px theme('colors.primary.500/20');
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.dark {
+  .technology-upload-dragger {
+    border-color: theme('colors.neutral.700');
+    background: theme('colors.neutral.800/50');
+
+    &:hover {
+      border-color: theme('colors.primary.400');
+      box-shadow: 0 0 20px theme('colors.primary.400/30');
+    }
+  }
+}

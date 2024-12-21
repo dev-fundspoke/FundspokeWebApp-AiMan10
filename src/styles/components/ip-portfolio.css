@@ -1,0 +1,46 @@
+@layer components {
+  .ip-portfolio-entry {
+    @apply transition-all duration-300;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+    
+    .ant-select,
+    .ant-input,
+    .ant-input-textarea {
+      @apply transition-all duration-300;
+      
+      &:hover {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 10px theme('colors.primary.500/20');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 15px theme('colors.primary.500/30');
+      }
+    }
+  }
+}
+
+.dark {
+  .ip-portfolio-entry {
+    .ant-select,
+    .ant-input,
+    .ant-input-textarea {
+      background: theme('colors.neutral.800') !important;
+      border-color: theme('colors.neutral.700');
+      
+      &:hover {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 10px theme('colors.primary.400/30');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 15px theme('colors.primary.400/40');
+      }
+    }
+  }
+}

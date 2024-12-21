@@ -1,0 +1,55 @@
+@layer components {
+  .document-upload-dragger {
+    @apply transition-all duration-300;
+    border-radius: theme('borderRadius.lg');
+    border: 2px dashed theme('colors.neutral.200');
+    background: transparent;
+    padding: theme('spacing.8');
+
+    &:hover {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 15px theme('colors.primary.500/20');
+      transform: translateY(-1px);
+    }
+
+    .ant-upload-drag-icon {
+      @apply transition-transform duration-300;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .document-entry {
+    @apply p-6 rounded-lg transition-all duration-300;
+    background: theme('colors.neutral.50/5');
+    border: 1px solid theme('colors.neutral.200');
+
+    &:hover {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 15px theme('colors.primary.500/10');
+    }
+  }
+}
+
+.dark {
+  .document-upload-dragger {
+    border-color: theme('colors.neutral.700');
+    background: theme('colors.neutral.800/50');
+
+    &:hover {
+      border-color: theme('colors.primary.400');
+      box-shadow: 0 0 20px theme('colors.primary.400/30');
+    }
+  }
+
+  .document-entry {
+    background: theme('colors.neutral.800/30');
+    border-color: theme('colors.neutral.700');
+
+    &:hover {
+      border-color: theme('colors.primary.400');
+      box-shadow: 0 0 20px theme('colors.primary.400/20');
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@layer components {
+  .sci-fi-collapse {
+    .ant-collapse-item {
+      border: none !important;
+      
+      .ant-collapse-header {
+        @apply px-6 py-4;
+        background: transparent;
+        border: none;
+        transition: all 0.3s ease;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+      
+      .ant-collapse-content {
+        @apply px-6 pb-6;
+        background: transparent;
+        border: none;
+      }
+      
+      .ant-collapse-expand-icon {
+        color: var(--accent-primary);
+        filter: drop-shadow(0 0 4px var(--accent-primary));
+      }
+    }
+  }
+  
+  .dark {
+    .sci-fi-collapse {
+      .ant-collapse-item {
+        .ant-collapse-header:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+  }
+}

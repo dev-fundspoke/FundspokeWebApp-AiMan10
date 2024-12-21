@@ -1,0 +1,56 @@
+@layer components {
+  .logo-upload-dragger {
+    @apply transition-all duration-300;
+    border-radius: theme('borderRadius.lg');
+    border: 2px dashed theme('colors.neutral.200');
+    background: transparent;
+    overflow: hidden;
+
+    &:hover {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 15px theme('colors.primary.500/20');
+      transform: translateY(-1px);
+      
+      .ant-upload-drag-icon {
+        color: theme('colors.primary.500');
+        transform: scale(1.05);
+      }
+    }
+
+    .ant-upload-drag-container {
+      @apply p-0;
+    }
+
+    .ant-upload-text {
+      @apply text-base font-medium;
+    }
+
+    .ant-upload-drag-icon {
+      @apply transition-transform duration-300;
+    }
+
+    img {
+      @apply transition-all duration-300;
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+}
+
+.dark {
+  .logo-upload-dragger {
+    border-color: theme('colors.neutral.700');
+    background: theme('colors.neutral.800/50');
+    backdrop-filter: blur(8px);
+
+    &:hover {
+      border-color: theme('colors.primary.400');
+      box-shadow: 0 0 20px theme('colors.primary.400/30');
+      
+      .ant-upload-drag-icon {
+        color: theme('colors.primary.400');
+      }
+    }
+  }
+}

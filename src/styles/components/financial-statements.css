@@ -1,0 +1,53 @@
+@layer components {
+  .financial-statements-upload {
+    @apply transition-all duration-300;
+    border-radius: theme('borderRadius.lg');
+    border: 2px dashed theme('colors.neutral.200');
+    background: transparent;
+    padding: theme('spacing.8');
+
+    &:hover {
+      border-color: theme('colors.primary.500');
+      box-shadow: 0 0 15px theme('colors.primary.500/20');
+      transform: translateY(-1px);
+    }
+
+    .ant-upload-drag-icon {
+      @apply transition-transform duration-300;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    .ant-upload-list {
+      @apply mt-4;
+      
+      .ant-upload-list-item {
+        @apply transition-all duration-300;
+        border-radius: theme('borderRadius.md');
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+  }
+}
+
+.dark {
+  .financial-statements-upload {
+    border-color: theme('colors.neutral.700');
+    background: theme('colors.neutral.800/50');
+
+    &:hover {
+      border-color: theme('colors.primary.400');
+      box-shadow: 0 0 20px theme('colors.primary.400/30');
+    }
+
+    .ant-upload-list-item {
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

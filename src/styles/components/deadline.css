@@ -1,0 +1,24 @@
+@layer components {
+  .deadline-progress {
+    .ant-progress-inner {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    .ant-progress-bg {
+      transition: all 0.3s ease;
+    }
+    
+    &:hover .ant-progress-bg {
+      transform: scaleY(1.2);
+    }
+  }
+
+  .deadline-tag {
+    @apply flex items-center gap-1 px-3 py-1;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}

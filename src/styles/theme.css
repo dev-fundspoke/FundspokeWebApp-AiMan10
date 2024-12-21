@@ -1,0 +1,38 @@
+@layer base {
+  :root {
+    --glow-primary: theme('colors.primary.500');
+    --glow-secondary: theme('colors.secondary.500');
+    --glow-accent: theme('colors.accent.500');
+  }
+}
+
+@layer components {
+  .futuristic-bg {
+    @apply bg-gradient-to-br from-neutral-900 to-neutral-800 dark:from-dark-bg dark:to-dark-card;
+    background-attachment: fixed;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-opacity-70 border border-opacity-10;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.05)
+    );
+  }
+
+  .holographic-text {
+    @apply relative;
+    background: linear-gradient(
+      90deg,
+      var(--glow-primary),
+      var(--glow-secondary),
+      var(--glow-accent),
+      var(--glow-primary)
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

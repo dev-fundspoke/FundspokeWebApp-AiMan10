@@ -1,0 +1,58 @@
+@layer components {
+  .futuristic-button {
+    @apply relative overflow-hidden;
+    &:hover {
+      @apply transform scale-105;
+      &::before {
+        @apply opacity-100;
+      }
+    }
+    &::before {
+      content: '';
+      @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+      background: linear-gradient(
+        45deg,
+        rgba(24, 144, 255, 0.1),
+        rgba(114, 46, 209, 0.1)
+      );
+    }
+  }
+
+  .holographic-card {
+    @apply relative overflow-hidden transition-transform duration-300;
+    &:hover {
+      @apply transform scale-[1.02];
+      .holographic-border::before {
+        @apply opacity-100;
+      }
+    }
+  }
+
+  .glowing-border {
+    @apply relative;
+    &::after {
+      content: '';
+      @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+      box-shadow: 0 0 15px theme('colors.primary.500');
+    }
+    &:hover::after {
+      @apply opacity-100;
+    }
+  }
+}
+
+.dark {
+  .futuristic-button {
+    @apply text-white;
+    &:hover {
+      @apply bg-opacity-20;
+    }
+  }
+
+  .holographic-card {
+    @apply border-opacity-20;
+    &:hover {
+      @apply border-opacity-30;
+    }
+  }
+}

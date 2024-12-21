@@ -1,0 +1,42 @@
+@layer components {
+  .personnel-form {
+    .ant-input-number {
+      @apply w-full transition-all duration-300;
+      border-radius: theme('borderRadius.lg');
+      min-height: 42px;
+      
+      &:hover {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 10px theme('colors.primary.500/20');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.500');
+        box-shadow: 0 0 15px theme('colors.primary.500/30');
+      }
+    }
+
+    .ant-form-item-label {
+      @apply mb-2;
+    }
+  }
+}
+
+.dark {
+  .personnel-form {
+    .ant-input-number {
+      background: theme('colors.neutral.800') !important;
+      border-color: theme('colors.neutral.700');
+      
+      &:hover {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 10px theme('colors.primary.400/30');
+      }
+      
+      &:focus {
+        border-color: theme('colors.primary.400');
+        box-shadow: 0 0 15px theme('colors.primary.400/40');
+      }
+    }
+  }
+}

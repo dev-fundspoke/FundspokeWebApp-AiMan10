@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isCompanyMember(companyId) {
+      return isSignedIn() && 
+        exists(/databases/$(database)/documents/companies/$(companyId)/members/$(request.auth.uid));
+    }
+
+    // Company rules
+    match /companies/{companyId} {
+      // Allow create if user is signed in
+      allow create: if isSignedIn();
+      // Allow read/update if user is company member
+      allow read, update: if isCompanyMember(companyId);
+      // Prevent deletion
+      allow delete: if false;
+
+      // Company members subcollection
+      match /members/{memberId} {
+        allow read: if isCompanyMember(companyId);
+        allow write: if isCompanyMember(companyId);
+      }
+
+      // Company documents subcollection
+      match /documents/{documentId} {
+        allow read: if isCompanyMember(companyId);
+        allow create, update: if isCompanyMember(companyId);
+        allow delete: if false;
+      }
+    }
+  }
+}

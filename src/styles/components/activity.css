@@ -1,0 +1,47 @@
+@layer components {
+  .futuristic-timeline {
+    .ant-timeline-item {
+      @apply transition-all duration-300;
+      
+      &:hover {
+        .ant-timeline-item-tail {
+          @apply border-primary-500;
+        }
+      }
+    }
+
+    .ant-timeline-item-tail {
+      @apply transition-colors duration-300;
+      border-inline-start: 2px solid theme('colors.neutral.700');
+    }
+
+    .ant-timeline-item-head {
+      @apply transition-transform duration-300;
+      &:hover {
+        @apply transform scale-110;
+      }
+    }
+  }
+
+  .timeline-item-hover {
+    @apply transition-opacity duration-300;
+    &:hover {
+      @apply opacity-90;
+    }
+  }
+
+  .activity-card {
+    @apply transition-transform duration-300;
+    &:hover {
+      @apply transform scale-[1.01];
+    }
+  }
+}
+
+.dark {
+  .futuristic-timeline {
+    .ant-timeline-item-tail {
+      border-inline-start: 2px solid theme('colors.neutral.800');
+    }
+  }
+}

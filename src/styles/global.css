@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-primary: #1B1F23;
+  --background-card: #24292E;
+  --background-hover: #2F363D;
+  --accent-success: #2ECC71;
+  --accent-error: #E74C3C;
+  --text-primary: #FFFFFF;
+  --text-secondary: #BCC1C6;
+  --border-default: #30363D;
+  --border-hover: #444D56;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background-primary)];
+    background-image: linear-gradient(
+      to bottom right,
+      var(--background-primary),
+      var(--background-card)
+    );
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .sci-fi-card {
+    @apply relative rounded-xl transition-all duration-300;
+    background: var(--background-card);
+    border: 1px solid var(--border-default);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  .sci-fi-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .search-bar {
+    @apply bg-opacity-20 backdrop-blur-lg;
+    background-color: var(--background-card);
+    border: 1px solid var(--border-default);
+  }
+
+  .search-bar:hover,
+  .search-bar:focus-within {
+    border-color: var(--border-hover);
+    box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.1);
+  }
+}

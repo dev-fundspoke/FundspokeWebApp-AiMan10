@@ -1,0 +1,26 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Company files
+    match /companies/{companyId}/{allPaths=**} {
+      // Allow read for public assets like logos
+      allow read: if request.path.matches('logos/.*') || 
+                  isCompanyMember(companyId);
+      
+      // Allow write with validation
+      allow write: if isCompanyMember(companyId) &&
+                  validateFile();
+    }
+
+    // Helper functions
+    function isCompanyMember(companyId) {
+      return request.auth != null &&
+        firestore.exists(/databases/(default)/documents/companies/$(companyId)/members/$(request.auth.uid));
+    }
+
+    function validateFile() {
+      return request.resource.size < 10 * 1024 * 1024 && // 10MB max
+             request.resource.contentType.matches('image/.*|application/pdf|application/msword|application/vnd.openxmlformats-officedocument.*');
+    }
+  }
+}
